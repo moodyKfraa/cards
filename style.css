@@ -1,0 +1,784 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}
+hr{
+    margin-top: 50px;
+}
+h1{
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: transparent;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  transform: translateX(-50%);
+}
+.firstCard {
+  width: 270px;
+  height: 400px;
+ border: 1px solid rgb(187, 187, 187);
+}
+.firstCard .overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 30px;
+}
+.firstCard .overlay .row1 {
+  text-align: center;
+}
+.firstCard .overlay .row1 h1 {
+  color: #333;
+  font-weight: 600;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.firstCard .overlay .row2 {
+  position: relative;
+  left: 35px;
+}
+.firstCard .overlay .row2 .borderImg img {
+  z-index: var(--order);
+  width: 100px;
+  position: absolute;
+}
+#yellow img:nth-child(1) {
+  top: 55px;
+  left: -10px;
+  transform: rotateZ(-53deg);
+}
+#orange img:nth-child(1) {
+  top: 90px;
+  left: 19px;
+  transform: rotateZ(-96deg);
+}
+#red img:nth-child(1) {
+  top: 97px;
+  left: 70px;
+  transform: rotateZ(-143deg);
+}
+#pink img:nth-child(1) {
+  top: 42px;
+  left: 114px;
+  transform: rotateZ(41deg);
+}
+#blue img:nth-child(1) {
+  top: -13px;
+  left: 88px;
+  transform: rotateZ(-17deg);
+}
+.firstCard .overlay .row2 .borderImg div img:nth-child(2){
+    visibility: hidden;
+    width: 70px;
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    transform: scale(0);
+}
+.firstCard .overlay .row2 .borderImg .rightAside{
+    height: 400px;
+    width:fit-content;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -139px;
+    display: none;
+    background-color: var(--backColor);
+    text-align: center;
+}
+.firstCard .overlay .row2 .borderImg .rightAside h1{
+    margin: 0;
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+.rightAside .box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 30px;
+}
+.rightAside .box .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.rightAside .box .card span{
+    width: 100px;
+    height: 2px;
+    background-color: #333;
+    position: relative;
+    border-radius: 5px;
+}
+.rightAside .box .card span::after{
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    width: var(--rate);
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+}
+
+.firstCard .overlay .row2 .borderImg div:hover img:nth-child(2){
+    animation: popup 1s forwards;
+    box-shadow: 0 0 10px #333;
+    border-radius: 50%;
+}
+.firstCard .overlay .row2 .borderImg div:hover .rightAside{
+    animation: slide 1s forwards;
+    display: flex;
+}
+@keyframes slide {
+    0%{
+        
+        left: 260px;
+        opacity: 0;
+    }
+    to{
+        left: 234px;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes popup {
+    100%{
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+
+/* end card1 */
+
+.secondCard{
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secondCard .icon{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backColor);
+  }
+.secondCard i{
+  color: #fff;
+    font-size: 20px;
+}
+.secondCard .header{
+  background: linear-gradient(#fe6733 , #ff4973);
+  animation: disappearing 10s infinite;
+  box-sizing: content-box;
+  position: absolute;
+  scale: 1.5;
+}
+.secondCard .popup{
+  background-color: #eee;
+  box-sizing: content-box;
+  padding: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: poping 10s infinite;
+  visibility: hidden;
+}
+.secondCard .popup .icon{
+}
+@keyframes disappearing {
+    0%{
+      visibility: visible;
+      border: 0px #eee solid;
+    }
+    30%{
+      visibility: visible;
+      border: 0px #eee solid;
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(.8);
+      border: 30px #eee solid;
+      visibility: hidden;
+    }
+    75%{
+      visibility: hidden;
+    }
+    100%{
+      visibility: visible;
+    }
+}
+@keyframes poping {
+    0%{
+      width: 50px;
+    }
+    50%{
+      width: 50px;
+      visibility: hidden;
+    }
+    55%{
+      width: 350px;
+      visibility: visible;
+    }
+    70%{
+      width: 300px;
+    }
+    75%{
+      width: 300px;
+      visibility: hidden;
+
+    }
+    100%{
+      width: 50px;
+      visibility: hidden;
+    }
+} 
+
+/* end secondCard */
+.thirdCard{
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #101626;
+  padding: 50px;
+}
+.thirdCard .headerBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #ec3a2e;
+  border-radius: 5px;
+  padding: 30px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.thirdCard .headerBox img{
+  width: 70px;
+}
+.thirdCard .headerBox .text{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fff;
+  font-weight: 100;
+}
+.thirdCard .headerBox .text h3{
+  margin: 0;
+  font-size: 20px;
+}
+.thirdCard .headerBox .bt{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50% , 50%);
+  padding: 10px 15px;
+  border-radius: 30px;
+  background-color: #f8c901;
+  color: #ec3a2e;
+  font-size: 15px;
+  font-weight: 500;
+  animation: flatten 10s infinite;
+}
+.bt::after{
+  content: "<";
+  font-size: 20px;
+  font-weight: 800;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(-50%) rotateZ(90deg);
+  background-color: #f8c901;
+  color: #c40f18;
+  padding: 20px;
+  border-radius: 50%;
+  animation: appear 10s 1s infinite;
+  visibility: hidden;
+}
+@keyframes flatten {
+  10%{
+    width: 100%;
+    bottom: -10px;
+    border-radius: 0;
+    background-color: #c40f18;
+    color: #f8c901;
+  }
+  60%{
+    width: 100%;
+    bottom: -10px;
+    border-radius: 0;
+    background-color: #c40f18;
+    color: #f8c901;
+  }
+  70%{
+    width: fit-content;
+    bottom: 0px;
+    background-color: #f8c901;
+    color: #ec3a2e;
+    border-radius: 30px;
+  }
+}
+@keyframes appear {
+  0%{
+    visibility: visible;
+  }
+  40%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+    visibility: hidden;
+  }
+  100%{
+    visibility: hidden;
+  }
+}
+.thirdCard .hide{
+  background-color: #fff;
+  display: flex;
+  border-radius: 5px;
+  width: 350px;
+  padding: 10px 30px;
+  gap: 15px;
+  margin-top: 10px;
+  opacity: 0;
+  animation: pop 10s infinite;
+  animation-delay: calc(var(--order) * .3s);
+}
+.thirdCard .hide .text h3{
+  color: var(--backColor);
+  font-weight: 500;
+}
+.thirdCard .hide i{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--backColor);
+  border-radius: 50%;
+  color: #fff;
+}
+.thirdCard .hide .text{
+  display: flex;
+  flex-direction: column;
+}
+.thirdCard .hide .text p{
+  font-size: 12px;
+}
+@keyframes pop {
+  10%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  55%{
+    opacity: 0;
+  }
+}
+/* end card 3 */
+.backGround{
+  background: linear-gradient(90deg ,#fed93a ,#fc3838);
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.fourthCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px 20px;
+}
+.fourthCard .img{
+  width: fit-content;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px #d84739;
+  transform: translateX(-60px);
+  background-color: #d5655c;
+}
+.fourthCard .img img{
+  border-radius: 10px;
+  width: 250px;
+  animation: animateImg 10s infinite;
+}
+.fourthCard .text{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #333;
+}
+.fourthCard .text h3{
+  font-weight: 100;
+}
+.fourthCard .text h1{
+  letter-spacing: -2px;
+  font-size: 25px;
+}
+.fourthCard .text p{
+  line-height: 1.5;
+}
+.fourthCard .text button{
+    padding: 10px 15px;
+    border-radius: 30px;
+    background-color: #fc3838;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    border: 0;
+    width: 150px;
+    box-shadow: 10px 10px 20px #c40f18;
+}
+.fourthCard .spans{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.fourthCard .spans span{
+  width: 10px;
+  height: 10px;
+  background-color: rgb(175, 175, 175);
+  border-radius: 50%;  
+  animation: spanAnimate 10s infinite;
+  animation-delay: calc(var(--order) * 3s);
+}
+.fourthCard .animate{
+  animation: animateText 10s infinite;
+  animation-delay: calc(var(--order) * .1s);
+}
+@keyframes animateText {
+  25% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  27.5% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  57.5% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  87.5% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animateImg {
+  25% {
+    opacity: .8;
+  }
+  27.5% {
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  55% {
+    opacity: .8;
+  }
+  57.5% {
+    opacity: 0;
+  }
+  60% {
+    opacity: .8;
+
+  }
+  85% {
+    opacity: .8;
+  }
+  87.5% {
+    opacity: 0;
+  }
+  90% {
+    opacity: .8;
+  }
+  100% {
+    opacity: .8;
+  }
+}
+@keyframes spanAnimate {
+  0% {
+    background-color: #fc3838;
+    border-radius: 10px;
+  }
+  5%{
+    height: 40px;
+  }
+  25% {
+    height: 40px;
+    background-color: #fc3838;
+    border-radius: 10px;
+  }
+  30%{
+    height: 10px;
+    background-color:rgb(175, 175, 175);
+    border-radius: 50%;
+  }
+  100% {
+    height: 10px;
+    background-color:rgb(175, 175, 175);
+    border-radius: 50%;
+  }
+}
+@keyframes spanAnimate2 {
+  0% {
+    background-color: #fc3838;
+    border-radius: 10px;
+  }
+  5%{
+    width: 40px;
+  }
+  25% {
+    width: 40px;
+    background-color: #fc3838;
+    border-radius: 10px;
+  }
+  30%{
+    width: 10px;
+    background-color:rgb(175, 175, 175);
+    border-radius: 50%;
+  }
+  100% {
+    width: 10px;
+    background-color:rgb(175, 175, 175);
+    border-radius: 50%;
+  }
+}
+
+@media (max-width:768px) {
+  .backGround{
+    padding-top: 200px;
+  }
+  .fourthCard{
+    flex-direction: column;
+    text-align: center;
+  }
+  .fourthCard .img{
+    transform: translateY(-130px);
+    box-shadow: 0 0 30px #c40f18 ;
+  }
+  .fourthCard .text{
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+  }
+  .fourthCard .text button{
+    box-shadow: 0 0 20px #c40f18;
+  }
+  .fourthCard .spans{
+    flex-direction: row;
+    position: absolute;
+    transform: translateY(-40px);
+  }
+  .fourthCard .spans span{
+    animation: spanAnimate2 10s infinite;
+    animation-delay: calc(var(--order) * 3s);
+  }
+}
+
+/* end card 4  */
+
+.backGroundColor{
+  background-color: #666666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 50px 0;
+}
+.fifthCard{
+  background-color: #fff;
+}
+.fifthCard .nav{
+  display: flex;
+}
+.fifthCard .nav div{
+  display: flex;
+  position: relative;
+}
+.fifthCard .nav div span{
+  box-sizing: content-box;
+  padding: 40px 60px;
+  background-color: #ced8e8;
+  color: #333;
+  font-size: 17px;
+  cursor: pointer;
+  transform-origin: 0 100%;
+}
+.fifthCard .nav div span:hover{
+  animation: spanAnimation .3s forwards;
+}
+@keyframes spanAnimation {
+  to{
+    background-color: #fff;
+    color: #2d53bb;
+    transform: scaleY(1.2);
+  }
+}
+.fifthCard .nav div::before{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background:  linear-gradient(to right, #667de8, #754da4);
+  z-index: 4;
+  opacity: 0;
+} 
+.fifthCard .nav div:hover::before{
+  animation: divBefore .5s .1s forwards linear;
+}
+
+@keyframes divBefore {
+  0%{
+    height: 0;
+    top: 106%;
+  }
+  50%{
+    height: 120%;
+    top: -20px;
+  }
+  100%{
+    height: 5px;
+    top: -20px;
+    opacity: 1;
+
+  }
+}
+
+.fifthCard .nav div::after{
+  content: attr(con);
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bolder;
+  visibility: hidden;
+}
+.fifthCard .nav div:hover::after{
+  animation: divAfter .5s linear;
+}
+@keyframes divAfter {
+  0%{
+    visibility: visible;
+    bottom: 20%;
+    opacity: 1;
+  }
+  100%{
+    bottom: 90%;
+    opacity: .8;
+    visibility: visible;
+  }
+}
+.fifthCard .nav div p::after{
+  content: attr(cont) ;
+  position: absolute;
+  top: 130px;
+  left: calc(var(--order) * 50px);
+  color: #333;
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 300;
+  width: 600px;
+  opacity: 0;
+  visibility: hidden;
+}
+.fifthCard .nav div:hover p::after{
+  animation: pAppear 1s forwards;
+}
+@keyframes pAppear {
+  from{
+    opacity: 0;
+    visibility: visible;
+    transform: translateX(20px);
+  }
+  to{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+.fifthCard .textplace{
+  width: 100%;
+  height: 300px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-image:  linear-gradient(to right, #667de8, #754da4);
+  border-image-slice: 1;
+}
